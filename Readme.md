@@ -1,0 +1,1 @@
+This repo will host my academic journey with Helsinki's Open University.
