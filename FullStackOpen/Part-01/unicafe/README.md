@@ -1,6 +1,6 @@
 # Exercise information
 
-Fullstack Open submission for Exercise 1.6 .
+Fullstack Open submission for Exercises 1.6 - 1.11 .
 
 Simple web applicaton for understanding the core concepts of React.
 
