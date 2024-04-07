@@ -24,7 +24,6 @@ const App = () => {
   const randomize = () => {
     const newSelected = Math.floor(Math.random()*anecdotes.length)
     setSelected(newSelected)
-    setIndex(newSelected)
   }
 
   const setVoteValue = () => {
