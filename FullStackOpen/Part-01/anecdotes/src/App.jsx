@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Display = ({anecdotes, selected, vote, index}) => <><p>{anecdotes[selected]}</p><p>has {vote[index]} votes</p></>
+const Display = ({h1, anecdotes, selected, vote}) => <><h1>{h1}</h1><p>{anecdotes[selected]}</p><p>has {vote[selected]} votes</p></>
 
 const Button = ({text, handleClick}) => <><button onClick={handleClick}>{text}</button></>
 
@@ -15,28 +15,31 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.',
     'The only way to go fast, is to go well.'
   ]
+  const h1 = ["Anecdote of the day", "Anecdote with most votes"]
    
   const [selected, setSelected] = useState(0)
-  const [index, setIndex] = useState(0)
+  const [mostVoted, setMostVoted] = useState(0)
   const [vote, setVote] = useState(Array(8).fill(0))
 
   const randomize = () => {
-    const updatedIndex = Math.floor(Math.random()*anecdotes.length)
-    setSelected(updatedIndex)
-    setIndex(updatedIndex)
+    const newSelected = Math.floor(Math.random()*anecdotes.length)
+    setSelected(newSelected)
+    setIndex(newSelected)
   }
 
   const setVoteValue = () => {
     const newVote = {...vote}
-    newVote[index] += 1
+    newVote[selected] += 1
     setVote(newVote)
+    if(newVote[selected] > newVote[mostVoted]){ setMostVoted(selected) }
   }
 
   return (
     <div>
-      <Display anecdotes={anecdotes} selected={selected} vote={vote} index={index}/>
-      <Button handleClick={setVoteValue} text="vote" />
-      <Button handleClick={randomize} text="next anecdote" />
+      <Display h1={h1[0]} anecdotes={anecdotes} selected={selected}  vote={vote} />
+      <Button handleClick={setVoteValue}  text="vote"          />
+      <Button handleClick={randomize}     text="next anecdote" />
+      <Display h1={h1[1]} anecdotes={anecdotes} selected={mostVoted} vote={vote} />
     </div>
   )
 }
