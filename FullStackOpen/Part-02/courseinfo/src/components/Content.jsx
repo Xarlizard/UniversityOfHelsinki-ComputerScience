@@ -1,4 +1,5 @@
 import Part from './Part'
+import Total from './Total'
 
 const Content = ({parts}) => 
     <>
@@ -9,6 +10,7 @@ const Content = ({parts}) =>
                     exercises={part.exercises}
                 />
         )}
+        <Total parts={parts}/>
     </>
     
   export default Content
