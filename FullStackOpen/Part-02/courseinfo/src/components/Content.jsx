@@ -13,4 +13,4 @@ const Content = ({parts}) =>
         <Total parts={parts}/>
     </>
     
-  export default Content
+export default Content
