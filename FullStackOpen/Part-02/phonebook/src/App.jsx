@@ -20,6 +20,7 @@ const App = () => {
       name:newName,
       number:newNumber
     }
+
     setPersons(persons.concat(newPerson))
     setNewName('')
     setNewNumber('')
@@ -30,41 +31,59 @@ const App = () => {
   }
 
   const handleNewName = (event) => {
-    setNewName(event.target.value);
+    setNewName(event.target.value)
   }
+
   const handleNewNumber = (event) => {
-    setNewNumber(event.target.value);
+    setNewNumber(event.target.value)
   }
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
-        filter shown with: <input value={searchName} onChange={handleSearchName} />
-      </div>
-      <h2>add a new</h2>
-      <form onSubmit={addPerson}>
-        <div>
-          name: <input value={newName} onChange={handleNewName} />
-        </div>
-        <div>
-          number: <input value={newNumber} onChange={handleNewNumber} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      {persons.map(person => {
-        if (searchName === ''){                                               //when the input field is empty, show every person
-          return <p key={person.name}>{person.name} {person.number}</p>
-        }
-        if(person.name.toLowerCase().includes(searchName.toLowerCase())){    //filter persons based on given input, showing matches only
-          return <p key={person.name}>{person.name} {person.number}</p>
-        }
-      })}
+      <Filter value={searchName} onChange={handleSearchName} />
+      <h3>add a new</h3>
+      <PersonForm 
+        addPerson={addPerson} 
+        newName={newName} 
+        newNumber={newNumber} 
+        handleNewName={handleNewName} 
+        handleNewNumber={handleNewNumber}/>
+      <h3>Numbers</h3>
+      <Persons persons={persons} searchName={searchName}/>
     </div>
   )
 }
+
+const Filter = ({value, onChange}) =>
+  <>
+    filter shown with: <input value={value} onChange={onChange} />
+  </>
+
+const PersonForm = ({addPerson, newName, handleNewName, newNumber, handleNewNumber}) =>
+  <form onSubmit={addPerson}>
+    <div>
+      name: <input value={newName} onChange={handleNewName} />
+    </div>
+    <div>
+      number: <input value={newNumber} onChange={handleNewNumber} />
+    </div>
+    <div>
+      <button type="submit">add</button>
+    </div>
+  </form>
+
+const Persons = ({persons, searchName = ''}) =>                            //if no searchName value is given, it will count as empty
+  <>
+    {persons.map(person => {
+      if (searchName === ''){                                               //when the input field is empty, show every person
+        return <p key={person.name}>{person.name} {person.number}</p>
+      }
+      if(person.name.toLowerCase().includes(searchName.toLowerCase())){    //filter persons based on given input, showing matches only
+        return <p key={person.name}>{person.name} {person.number}</p>
+      }
+    })}
+  </>
+
 
 export default App
