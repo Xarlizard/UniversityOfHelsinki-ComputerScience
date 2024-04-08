@@ -5,6 +5,7 @@ const Total = ({parts}) => {
         for(let i = 0; i < parts.length; i++){result += parts[i]['exercises']}
         return result
     }
+    
     return(
       <>
         <p><b>total of {sum(parts)} exercises</b></p>
