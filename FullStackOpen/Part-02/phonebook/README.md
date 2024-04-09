@@ -1,8 +1,8 @@
 # Exercise information
 
-Fullstack Open submission for Exercises 2.6 - 2.15 .
+Fullstack Open submission for Exercises 2.6 - 2.17 .
 
-Simple web applicaton for understanding the core concepts of React.
+Simple web applicaton for understanding the core concepts of React and AXIOS methods.
 
 ## Start the application
 
