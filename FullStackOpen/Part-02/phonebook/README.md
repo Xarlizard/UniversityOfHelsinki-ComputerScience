@@ -17,5 +17,6 @@ $ npm run server
 $ npm run dev
 ```
 
-You can then access the json-server on: http://localhost:3001/persons  (localhost port may be already in use, check terminal when running `npm run server`).
+You can then access the json-server on: http://localhost:3001/persons  (port may be already in use, check terminal when running `npm run server`).
+
 You can then access the app on: http://localhost:5173/  (localhost port may vary, check terminal if needed).
