@@ -1,28 +1,22 @@
-const Countries = ({countries, searchCountry = ''}) =>{                           //if no searchName value is given, it will count as empty
-  const filteredCountries = (countries.filter(country => country.name.common.toLowerCase().includes(searchCountry.toLowerCase())))
-  console.log(filteredCountries)
+import Country from "./Country"
+import OneCountry from "./OneCountry"
 
-  if(filteredCountries.length <= 10 && searchCountry !='') {
-    if(filteredCountries.length == 0){return <p>No results</p>}
+const Countries = ({filtered, searchCountry}) =>{                           //if no searchName value is given, it will count as empty
+  
+  if(filtered.length <= 10) {                                               //when there ar 10 matches at most
+    if(filtered.length == 0){return <p>No results</p>}                      //when no matches
+    if(filtered.length == 1){return <OneCountry country={filtered[0]}/>}    //when there's only 1 match render OneCountry
+  
     return(
-        <>
-            {
-            filteredCountries.map(country => {    
-                    return <Country key={country.name.common} country={country} />
+      <>
+        {filtered.map(country => {    
+            return <Country key={country.name.common} country={country} />  //multiple countries render only name from each
+          })}
+      </>
+    )
 
-          
-            })}
-        </>)
-  }else{
-    return <p>Too much countries</p>
-  }
+  }else if (searchCountry == ''){return <p>Too much countries</p>}           //when there are too many matches
+  else {return <p>Type to search a country</p>}                              //waiting for input
 }
-
-const Country = ({country}) => 
-  <>
-    <p>
-      {country.name.common} 
-    </p>
-  </>
 
 export default Countries

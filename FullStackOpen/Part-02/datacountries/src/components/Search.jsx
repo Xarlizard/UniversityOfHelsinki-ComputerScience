@@ -1,3 +1,6 @@
-const Search = ({value, onChange}) => <>find countries: <input value={value} onChange={onChange} /></>
+const Search = ({searchCountry, handleSearchCountry}) => 
+    <>
+        find countries: <input value={searchCountry} onChange={handleSearchCountry} />
+    </>
 
 export default Search
