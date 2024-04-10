@@ -2,12 +2,12 @@
 
 Fullstack Open submission for Exercises 2.18 - 2.20 .
 
-Simple web applicaton for understanding the core concepts of React, AXIOS (http requests) method and JSON handling.
+Simple web applicaton for understanding the core concepts of React, AXIOS (http requests) method, JSON handling and basic API interactions.
 
 ## Start the application
 
 To start the application, do the following:
-
+First, create a `.env.development` file on the root directory containing `VITE_WEATHER_KEY=` followed without whitespaces from your OpenWeather API key. If you don't have one, you can get one for free [here](https://home.openweathermap.org/api_keys) (free tier only allows 1.000 requests per day, keep that in mind!).
 ```bash
 # Install dependancies
 $ npm install

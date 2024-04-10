@@ -1,11 +1,21 @@
 import Country from "./Country"
 import OneCountry from "./OneCountry"
 
-const Countries = ({filtered, setToFiltered, searchCountry}) =>{                           //if no searchName value is given, it will count as empty
+const Countries = ({filtered, setToFiltered, searchCountry, wind, setWind, temp, setTemp, wImg, setWImg, last, setLast}) =>{                           //if no searchName value is given, it will count as empty
   
   if(filtered.length <= 10) {                                               //when there ar 10 matches at most
     if(filtered.length == 0){return <p>No results</p>}                      //when no matches
-    if(filtered.length == 1){return <OneCountry country={filtered[0]}/>}    //when there's only 1 match render OneCountry
+    if(filtered.length == 1){                                               //when there's only 1 match render only OneCountry
+      return( 
+        <OneCountry 
+          country={filtered[0]} 
+          wind={wind} setWind={setWind} 
+          temp={temp} setTemp={setTemp}
+          last={last} setLast={setLast}
+          wImg={wImg} setWImg={setWImg}
+        />
+      )
+    }
   
     return(
       <>
