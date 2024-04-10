@@ -25,11 +25,15 @@ function App() {
     ))
   }
 
+  const setToFiltered = country => {
+    setFiltered([country])
+  }
+
   if(filtered != null){
     return (
       <>
         <Search searchCountry={searchCountry} handleSearchCountry={handleSearchCountry}/>
-        <Countries filtered={filtered} searchCountry={searchCountry} />
+        <Countries filtered={filtered} searchCountry={searchCountry} setToFiltered={setToFiltered} />
       </>
     )
   }

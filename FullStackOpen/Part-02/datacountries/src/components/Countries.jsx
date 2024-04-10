@@ -1,7 +1,7 @@
 import Country from "./Country"
 import OneCountry from "./OneCountry"
 
-const Countries = ({filtered, searchCountry}) =>{                           //if no searchName value is given, it will count as empty
+const Countries = ({filtered, setToFiltered, searchCountry}) =>{                           //if no searchName value is given, it will count as empty
   
   if(filtered.length <= 10) {                                               //when there ar 10 matches at most
     if(filtered.length == 0){return <p>No results</p>}                      //when no matches
@@ -10,7 +10,7 @@ const Countries = ({filtered, searchCountry}) =>{                           //if
     return(
       <>
         {filtered.map(country => {    
-            return <Country key={country.name.common} country={country} />  //multiple countries render only name from each
+            return <Country key={country.name.common} country={country} setToFiltered={setToFiltered}/>  //multiple countries render only name from each
           })}
       </>
     )
