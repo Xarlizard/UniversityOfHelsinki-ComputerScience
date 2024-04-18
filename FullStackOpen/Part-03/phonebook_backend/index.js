@@ -34,6 +34,36 @@ app.get('/api/persons', (request, response) => {
   response.json(persons)
 })
 
+app.get('/info', (request, response) => {
+  var date = new Date()
+  response.send(`<p>Phonebook has info for ${persons.length} people</p><p>${date}</p>`)
+})
+
+const generateId = () => {
+  return Math.floor(Math.random() * 1000);
+}
+
+app.post('/api/persons/', (request, response) => {
+  const body = request.body
+  console.log(body, "is the content")
+
+  if (!body.name) {
+    return response.status(400).json({ 
+      error: 'content missing' 
+    })
+  }
+
+  const person = {
+    name: body.name,
+    number: body.number,
+    id: generateId()
+  }
+
+  persons = persons.concat(person)
+
+  response.json(person)
+})
+
 app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   const person = persons.find(person => person.id === id)
@@ -43,11 +73,6 @@ app.get('/api/persons/:id', (request, response) => {
     console.log('x')
     response.status(404).end()
   }
-})
-
-app.get('/info', (request, response) => {
-  var date = new Date()
-  response.send(`<p>Phonebook has info for ${persons.length} people</p><p>${date}</p>`)
 })
 
 app.delete('/api/persons/:id', (request, response) => {
