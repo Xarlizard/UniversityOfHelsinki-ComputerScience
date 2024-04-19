@@ -25,7 +25,8 @@ let persons = [
   }
 ]
 
-app.use(morgan('tiny'))
+morgan.token('body', (req, res) => JSON.stringify(req.body));
+app.use(morgan(' :remote-user :method :url :status :res[content-length] :response-time ms :res[content-body] :body'))
 app.use(express.json())
 
 app.get('/', (request, response) => {
