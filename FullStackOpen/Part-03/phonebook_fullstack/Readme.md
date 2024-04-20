@@ -26,3 +26,6 @@ $ fly deploy
 ```
 
 (you need to have Fly.io installed on your machine)
+
+
+The frontend build is at `dist` directory (literally a Ctrl+C/Ctrl+V from ..\Part-02\phonebook project, in case you want to understand the code behind it)
