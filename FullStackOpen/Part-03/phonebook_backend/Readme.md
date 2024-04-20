@@ -1,6 +1,6 @@
 # Exercise information
 
-Fullstack Open submission for Exercises 3.1 - 3.10 .
+Fullstack Open submission for Exercises 3.1 - 3.8 .
 
 Simple web applicaton for understanding the core concepts of Node, Express (http requests) methods and JSON data handling.
 
