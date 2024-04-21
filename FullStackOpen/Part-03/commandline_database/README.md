@@ -16,3 +16,5 @@ $ npm start {password} {name} {number}
 ```
 
 You can ommit `name` and `number` fields, and by doing so, the whole `phonebook persons` database will be displayed
+
+Also, `npm start` is a shortcut that can be replaced by `node mongo.js` and the followed by the same inputs.
