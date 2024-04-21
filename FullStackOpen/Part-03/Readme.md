@@ -3,3 +3,5 @@ This directory contains all completed submissions for exercises corresponding to
 `./phonebook_backend` contains submission for exercises 3.1 - 3.8 .
 
 `./phonebook_fullstack` contains submission for exercises 3.9 - 3.11 .
+
+`./commandline_database` contains submission for exercise 3.12 .
