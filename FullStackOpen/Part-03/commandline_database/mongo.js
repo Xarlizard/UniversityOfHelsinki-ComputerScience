@@ -7,7 +7,7 @@ if (process.argv.length<3) {
 
 const password = process.argv[2]
 const nameField = process.argv[3]
-const numField = process.argv[4]
+const numField = process.argv[4] != undefined ? process.argv[4] : ''
 
 const url =
   `mongodb+srv://thecharkrios:${password}@cluster0.ryuajxr.mongodb.net/personApp?retryWrites=true&w=majority&appName=Cluster0`
@@ -18,7 +18,7 @@ mongoose.connect(url)
 
 const personSchema = new mongoose.Schema({
   name: String,
-  number: Number,
+  number: String,
 })
 
 const Person = mongoose.model('Person', personSchema)
