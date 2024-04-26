@@ -7,10 +7,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+
 node_modules
 dist-ssr
 *.local
 .env
+
+#directory cloned from Part 02 just to build frontend
+phonebook 
 
 # Editor directories and files
 .vscode/*

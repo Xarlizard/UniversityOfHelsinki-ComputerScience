@@ -6,4 +6,4 @@ This directory contains all completed submissions for exercises corresponding to
 
 `./commandline_database` contains submission for exercise 3.12 .
 
-`.//phonebook_database` contains submission for exercises 3.13 - 3.18 .
+`./phonebook_database` contains submission for exercises 3.13 - 3.20 .
