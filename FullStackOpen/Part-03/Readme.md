@@ -8,4 +8,4 @@ This directory contains all completed submissions for exercises corresponding to
 
 `./phonebook_database` contains submission for exercises 3.13 - 3.20 .
 
-`./phonebook_production` contains submission for exercise 3.21 .
+`./phonebook_production` contains submission for exercises 3.21 - 3.22 .

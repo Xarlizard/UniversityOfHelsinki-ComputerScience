@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Person = require('./models/person')
-const requestLogger = require('express-requests-logger')
+//const requestLogger = require('express-requests-logger')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')

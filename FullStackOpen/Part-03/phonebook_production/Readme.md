@@ -1,6 +1,6 @@
 # Exercise information
 
-Fullstack Open submission for Exercise 3.21 .
+Fullstack Open submission for Exercises 3.21 3.22 .
 
 Simple fullstack web applicaton for understanding the core concepts of Node, MongoDB and Fly.io.
 
