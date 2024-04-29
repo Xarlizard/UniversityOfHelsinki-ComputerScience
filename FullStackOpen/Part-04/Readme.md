@@ -1,3 +1,3 @@
-This directory contains all completed submissions for exercises corresponding to the Part 03 of this course.
+This directory contains all completed submissions for exercises corresponding to the Part 04 of this course.
 
-`./` contains submission for exercise 4.1 .
+`./bloglist` contains submission for exercises 4.1 - 4.2 .
