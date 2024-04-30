@@ -11,8 +11,8 @@ const totalLikes = (blogs) => {
 }
 
 const favoriteBlog = (blogs) =>{
-  let maxBlog = blogs.reduce((max, blog) => max.likes > blog.likes ? max : blog)
-  return maxBlog
+  let favorite = blogs.reduce((max, blog) => max.likes > blog.likes ? max : blog)
+  return favorite
 }
 
 const mostBlogs = (blogs) =>{
@@ -36,9 +36,26 @@ const mostBlogs = (blogs) =>{
   return element_having_max_freq; 
 }
 
+const mostLikes = (blogs) => {
+  let list = []
+  blogs.map(blog => {
+    if(list.some(e => e.author === blog.author)){
+      list.find((e) => e.author === blog.author).likes += blog.likes
+    }else {
+      let newItem = { 'author': blog.author , 'likes': blog.likes}
+      list.push(newItem) 
+    }
+  })
+
+  var res = Math.max(...list.map(function(o){return o.likes;}))
+  var obj = list.find(function(o){ return o.likes  == res; })
+  return obj
+}
+
 module.exports = {
     dummy,
     totalLikes,
     favoriteBlog,
-    mostBlogs
+    mostBlogs,
+    mostLikes
 }

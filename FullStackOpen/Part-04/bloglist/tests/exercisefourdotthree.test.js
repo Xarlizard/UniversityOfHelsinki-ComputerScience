@@ -96,3 +96,31 @@ describe('exercise 4.6 most blogs', ()=>{
     assert.deepStrictEqual(result, 'Edsger W. Dijkstra')
   })
 })
+
+describe('exercise 4.7 most likes', ()=>{
+  test('Author with most likes pops up', () => {
+    const blogs = [
+      {
+        _id: '1',
+        title: 'Go To Statement Considered Harmful',
+        author: 'Edsger W. Dijkstra',
+        likes: 5,
+      },
+      {
+        _id: '2',
+        title: 'Winner',
+        author: 'Someone',
+        likes: 10,
+      }, 
+      {
+        _id: '3',
+        title: 'Second book',
+        author: 'Edsger W. Dijkstra',
+        likes: 8,
+      }
+    ]
+  
+    const result = listHelper.mostLikes(blogs)
+    assert.deepStrictEqual(result, {'author': 'Edsger W. Dijkstra', 'likes': 13})
+  })
+})
