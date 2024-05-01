@@ -8,21 +8,6 @@ const api = supertest(app)
 
 const Blog = require('../models/blog')
 
-const initialBlogs = [
-  {
-    title: 'HTML is easy',
-    author: 'Someone',
-    url: 'url',
-    likes: 10
-  },
-  {
-    title: 'Browser can execute only JavaScript',
-    author: 'Somebody',
-    url: 'url',
-    likes: 8
-  },
-]
-
 beforeEach(async () => {
   await Blog.deleteMany({})
 
@@ -32,19 +17,23 @@ beforeEach(async () => {
   await Promise.all(promiseArray)
 })
 
-test('blogs are returned as json', async () => {
+test('4.8 blogs are returned as json', async () => {
   await api
     .get('/api/blogs')
     .expect(200)
     .expect('Content-Type', /application\/json/)
 })
 
-test('all blogs are returned', async () => {
+test('4.8 all blogs are returned', async () => {
     const response = await api.get('/api/blogs')
   
     assert.strictEqual(response.body.length, helper.initialBlogs.length)
 })
   
+test('4.9 id is _id by default', async () => {
+  const blogs = await Blog.find({})
+  assert((blogs[0]._id), true)
+})
 
 after(async () => {
   await mongoose.connection.close()
