@@ -70,6 +70,26 @@ test('4.10 blog without content is not added', async () => {
   assert.strictEqual(blogsAtEnd.length, helper.initialBlogs.length)
 })
 
+test('4.11 blog without likes defaults to 0 ', async () => {
+  const newBlog = {
+    title: 'NoLikes blog',
+    author: 'Someone',
+    url: 'url'
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const blogsAtEnd = await helper.blogsInDb()
+  assert.strictEqual(blogsAtEnd.length, helper.initialBlogs.length + 1)
+
+  const thisBlog = blogsAtEnd.find(r => r.title == 'NoLikes blog')
+  assert.strictEqual(thisBlog.likes, 0)
+})
+
 after(async () => {
   await mongoose.connection.close()
 })
