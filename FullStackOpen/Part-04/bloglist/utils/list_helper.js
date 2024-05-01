@@ -39,12 +39,11 @@ const mostBlogs = (blogs) =>{
 const mostLikes = (blogs) => {
   let list = []
   blogs.map(blog => {
-    if(list.some(e => e.author === blog.author)){
-      list.find((e) => e.author === blog.author).likes += blog.likes
-    }else {
-      let newItem = { 'author': blog.author , 'likes': blog.likes}
-      list.push(newItem) 
-    }
+    let newItem = { 'author': blog.author , 'likes': blog.likes}
+    
+    list.some(e => e.author === blog.author) 
+      ? list.find((e) => e.author === blog.author).likes += blog.likes 
+      : list.push(newItem) 
   })
 
   var res = Math.max(...list.map(function(o){return o.likes;}))
